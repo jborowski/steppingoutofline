@@ -9,4 +9,5 @@ window.onload = function(){
   game.state.add('StartMenu', SAGDX.StartMenu);
   //game.state.add('Level', SAGDX.Level);
   //game.state.add('Result', SAGDX.Result);
+  game.state.start('Boot');
 }

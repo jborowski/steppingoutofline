@@ -1,8 +1,5 @@
-var SAGDX = {};
-
-SAGDX.Boot = function (game) {};
-
-SAGDX.Boot.prototype = {
+NSTC.Boot = function (game) {};
+NSTC.Boot.prototype = {
   preload: function () {
     this.load.image('loadBar', 'assets/loadBar.png', 350, 50);
     this.load.image('SAGDlogo', 'assets/SA.png', 135, 135);

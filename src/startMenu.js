@@ -1,8 +1,7 @@
-SAGDX.StartMenu = function(game){};
-SAGDX.StartMenu.prototype = {
+if(!NSTC){NSTC={};}
+NSTC.StartMenu = function(game){};
+NSTC.StartMenu.prototype = {
   // Settings
-  timeMultiplier: 400,
-
   create: function(){
     this.keyboard = this.game.input.keyboard;
 

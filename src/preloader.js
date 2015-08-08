@@ -1,12 +1,12 @@
-SAGDX.Preloader = function (game) {
+if(!NSTC){NSTC={};}
+NSTC.Preloader = function (game) {
   this.loadBackground = null;
   this.preloadBar = null;
   this.SAlogo = null;
   this.loadingText = null;
   this.ready = false;
 };
-
-SAGDX.Preloader.prototype = {
+NSTC.Preloader.prototype = {
 
   preload: function () {
     this.preloadBar = this.add.sprite(209, 356, 'loadBar');

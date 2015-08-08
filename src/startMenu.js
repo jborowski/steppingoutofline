@@ -1,8 +1,9 @@
 NSTC.StartMenu = function(game){};
 NSTC.StartMenu.prototype = {
-  options: [],
-  selectedOptionId: 0,
   create: function(){
+    this.options = [];
+    this.selectedOptionId = 0;
+
     this.game.add.text(250, 50, "OUT_OF_LINE!", { fill: '#FFF' });
     this.menu = this.game.add.group();
     this.menu.position.x = 300;
@@ -15,7 +16,8 @@ NSTC.StartMenu.prototype = {
       newOption.outline = this.game.add.sprite(-20,0, selectedGraphic.generateTexture());
       newOption.outline.visible = false;
       newOption.add(newOption.outline);
-      newOption.text = this.game.add.text(0,0, optionTexts[ii], { fill: '#FFF'});
+      newOption.name = optionTexts[ii];
+      newOption.text = this.game.add.text(0,0, newOption.name, { fill: '#FFF'});
       newOption.add(newOption.text);
       newOption.position.y = ii * 30;
       this.options.push(newOption);
@@ -49,7 +51,7 @@ NSTC.StartMenu.prototype = {
   },
   update: function(){
     if(this.game.input.keyboard.isDown(13)){
-      this.state.start('Level', true, false, {text: "A level from data!"});
+      this.state.start('Level', true, false, {text: this.getSelectedOption().name});
     } else if(this.game.input.keyboard.isDown(83)){
       this.nextOption();
     } else if(this.game.input.keyboard.isDown(87)){

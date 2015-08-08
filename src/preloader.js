@@ -1,4 +1,3 @@
-if(!NSTC){NSTC={};}
 NSTC.Preloader = function (game) {
   this.loadBackground = null;
   this.preloadBar = null;

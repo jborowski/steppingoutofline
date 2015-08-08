@@ -22,6 +22,7 @@ NSTC.StartMenu.prototype = {
       newOption.position.y = ii * 30;
       this.options.push(newOption);
     }
+
     this.select(this.getSelectedOption());
   },
   nextOption: function(){
@@ -50,11 +51,12 @@ NSTC.StartMenu.prototype = {
     option.outline.visible = true;
   },
   update: function(){
-    if(this.game.input.keyboard.isDown(13)){
+    this.game.keyManager.update();
+    if(this.game.keyManager.isReleased(13)){
       this.state.start('Level', true, false, {text: this.getSelectedOption().name});
-    } else if(this.game.input.keyboard.isDown(83)){
+    } else if(this.game.keyManager.isPressed(83)){
       this.nextOption();
-    } else if(this.game.input.keyboard.isDown(87)){
+    } else if(this.game.keyManager.isPressed(87)){
       this.previousOption();
     }
   }

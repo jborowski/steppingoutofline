@@ -14,10 +14,9 @@ NSTC.Level.prototype = {
   },
   update: function(){
     this.game.keyManager.update();
+
     if(this.game.keyManager.isReleased('enter')){
       this.state.start('StartMenu');
-    } else if(this.game.keyManager.isPressed('a')){
-    } else if(this.game.keyManager.isPressed('d')){
     }
   },
 }

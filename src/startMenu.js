@@ -54,9 +54,9 @@ NSTC.StartMenu.prototype = {
     this.game.keyManager.update();
     if(this.game.keyManager.isReleased('enter')){
       this.state.start('Level', true, false, {text: this.getSelectedOption().name});
-    } else if(this.game.keyManager.isPressed('s')){
+    } else if(this.game.keyManager.isPressed('down')){
       this.nextOption();
-    } else if(this.game.keyManager.isPressed('w')){
+    } else if(this.game.keyManager.isPressed('up')){
       this.previousOption();
     }
   }

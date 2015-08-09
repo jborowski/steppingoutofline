@@ -8,10 +8,26 @@ NSTC.Finger = function(state, x, y){
   this.cVars = {
     lineX: x,
     lineY: y
-  }
+  };
 
   this.update = function(){
-  }
+    if(this.game.keyManager.isPressed('left')){
+      this.stepLeft(); 
+    } else if(this.game.keyManager.isPressed('right')){
+      this.stepRight(); 
+    }
+    if(this.game.keyManager.isReleased("left") || this.game.keyManager.isReleased("right")){
+      this.x = this.cVars.lineX;
+    }
+  };
+
+  this.stepRight = function(){
+    this.x = this.cVars.lineX + 30;
+  };
+
+  this.stepLeft = function(){
+    this.x = this.cVars.lineX - 30;
+  };
 }
 
 NSTC.Finger.prototype = Object.create(Phaser.Sprite.prototype);

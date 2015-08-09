@@ -3,6 +3,10 @@ NSTC.KeyManager = function(game){
   // Key states: 0/Free, 1/Pressed, 2/Held, 3/Released
   this.keys = [
     { name: "enter", code: 13},
+    { name: "left", code: 37},
+    { name: "up", code: 38},
+    { name: "right", code: 39},
+    { name: "down", code: 40},
     { name: "a", code: 65},
     { name: "w", code: 87},
     { name: "s", code: 83},
@@ -66,5 +70,12 @@ NSTC.KeyManager.prototype = {
   },
   resetTime: function(code){
     this.keysByCode[code].timeChanged = this.game.time.now;
+  },
+  alertCodeForPressed: function(){
+    for(var ii=0; ii < 255; ii += 1){
+      if(this.game.input.keyboard.isDown(ii)){
+        alert("Pressed: "+ii);
+      }
+    }
   }
 }

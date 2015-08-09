@@ -1,4 +1,4 @@
-NSTC.Finger = function(state, x, y){
+NSTC.Finger = function(state, x, y, letter){
   this.state = state;
   this.game = this.state.game;
   var selectedGraphic = new Phaser.Graphics().beginFill(0x0000FF).drawCircle(0,0,50,50);
@@ -7,16 +7,22 @@ NSTC.Finger = function(state, x, y){
 
   this.cVars = {
     lineX: x,
-    lineY: y
+    lineY: y,
+    letter: letter
   };
 
   this.update = function(){
-    if(this.game.keyManager.isPressed('left')){
-      this.stepLeft(); 
-    } else if(this.game.keyManager.isPressed('right')){
-      this.stepRight(); 
+    if(this.game.keyManager.isHeld(letter)){
+      if(this.game.keyManager.isPressed('left')){
+        this.stepLeft(); 
+      } else if(this.game.keyManager.isPressed('right')){
+        this.stepRight(); 
+      }
     }
     if(this.game.keyManager.isReleased("left") || this.game.keyManager.isReleased("right")){
+      this.x = this.cVars.lineX;
+    }
+    if(this.game.keyManager.isReleased(this.cVars.letter)){
       this.x = this.cVars.lineX;
     }
   };

@@ -52,11 +52,11 @@ NSTC.StartMenu.prototype = {
   },
   update: function(){
     this.game.keyManager.update();
-    if(this.game.keyManager.isReleased(13)){
+    if(this.game.keyManager.isReleased('enter')){
       this.state.start('Level', true, false, {text: this.getSelectedOption().name});
-    } else if(this.game.keyManager.isPressed(83)){
+    } else if(this.game.keyManager.isPressed('s')){
       this.nextOption();
-    } else if(this.game.keyManager.isPressed(87)){
+    } else if(this.game.keyManager.isPressed('w')){
       this.previousOption();
     }
   }

@@ -37,20 +37,32 @@ NSTC.KeyManager.prototype = {
       }
     }
   },
+  getKey: function(code){
+    var key = this.keysByCode[code]
+    if(key){
+      return key;
+    } else {
+      return this.keysByName[code];
+    }
+  },
+  // Returns true if free or released
   isFree: function(code){
-    return this.keysByCode[code].state == 0;
+    var key = this.getKey(code);
+    return key.state == 0 || key.state == 3;
   },
   isPressed: function(code){
-    return this.keysByCode[code].state == 1;
+    return this.getKey(code).state == 1;
   },
+  // Returns true if in held or pressed state
   isHeld: function(code){
-    return this.keysByCode[code].state == 2;
+    var key = this.getKey(code);
+    return key.state == 2 || key.state == 1;
   },
   isReleased: function(code){
-    return this.keysByCode[code].state == 3;
+    return this.getKey(code).state == 3;
   },
   timeHeld: function(code){
-    return this.game.time.now - this.keysByCode[code].timeChanged;
+    return this.game.time.now - this.getKey(code).timeChanged;
   },
   resetTime: function(code){
     this.keysByCode[code].timeChanged = this.game.time.now;

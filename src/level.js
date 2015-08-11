@@ -13,10 +13,15 @@ NSTC.Level.prototype = {
     this.oneTarget = new NSTC.Target(this, this.oneFinger, this.twoFinger, this.game.time.now + 2000, 150, 150);
 
     this.game.add.text(50, 50, this.definition.text, { fill: '#FFF' });
+    this.loopTimerText = this.game.add.text(50, 150, '', { fill: '#FFF' });
+
+    this.music = this.game.add.sound('test_loop');
+    this.music.loopFull();
   },
   update: function(){
     this.game.keyManager.update();
-
+    this.loopTimerText.setText(String(this.music.currentTime));
+    this.oneFinger.y = 400 - (this.music.currentTime/this.music.durationMS) * 300
     if(this.game.keyManager.isReleased('enter')){
       this.state.start('StartMenu');
     }

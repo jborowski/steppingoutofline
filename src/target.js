@@ -5,7 +5,7 @@ NSTC.Target = function(state, leftFinger, rightFinger, timer, x, y){
   this.activeGraphic = new Phaser.Graphics().beginFill(0x00FF00).drawCircle(0,0,50,50);
   this.hitGraphic = new Phaser.Graphics().beginFill(0x888888).drawCircle(0,0,50,50);
   Phaser.Sprite.call(this, this.game, x, y, this.inactiveGraphic.generateTexture());
-  this.state.fingers.add(this);
+  this.state.targets.add(this);
 
   this.cVars = {
     leftFinger: leftFinger,
@@ -26,7 +26,7 @@ NSTC.Target = function(state, leftFinger, rightFinger, timer, x, y){
     if(this.cVars.active && !this.cVars.hit){
       if(this.cVars.leftFinger.isRight() || this.cVars.rightFinger.isLeft()){
         this.cVars.hit = true;
-        this.texture = this.hitGraphic.generateTexture();
+        this.kill();
       }
     }
 
@@ -34,6 +34,7 @@ NSTC.Target = function(state, leftFinger, rightFinger, timer, x, y){
       this.texture = this.inactiveGraphic.generateTexture();
       this.cVars.hit = false;
       this.cVars.active = false;
+      this.revive();
     }
   };
 }

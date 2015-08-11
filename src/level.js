@@ -5,6 +5,7 @@ NSTC.Level.prototype = {
   },
   create: function(){
     this.fingers = this.game.add.group();
+    this.targets = this.game.add.group();
 
     this.oneFinger = new NSTC.Finger(this, 280, 400, 'a');
     this.twoFinger = new NSTC.Finger(this, 350, 400, 's');

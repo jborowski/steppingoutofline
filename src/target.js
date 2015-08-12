@@ -17,7 +17,7 @@ NSTC.Target = function(state, leftFinger, rightFinger, timer, x, y){
 
   this.cUpdate = function(){
     // If inactive, see if we should become active yet
-    if(!this.cVars.active && this.cVars.timer < this.game.time.now){
+    if(!this.cVars.active && this.cVars.timer < this.state.music.currentTime){
       this.cVars.active = true;
       this.texture = this.activeGraphic.generateTexture();
     }
@@ -31,8 +31,15 @@ NSTC.Target = function(state, leftFinger, rightFinger, timer, x, y){
       } else if(this.cVars.rightFinger.isLeft()){
         this.cVars.rightFinger.success();
         this.cVars.hit = true;
-        this.texture = this.hitGraphic.generateTexture();
+        this.kill();
       }
+    }
+
+    if(this.cVars.hit && this.cVars.timer > this.state.music.currentTime){
+      this.texture = this.inactiveGraphic.generateTexture();
+      this.cVars.hit = false;
+      this.cVars.active = false;
+      this.revive();
     }
   };
 }

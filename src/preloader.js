@@ -12,7 +12,7 @@ NSTC.Preloader.prototype = {
     this.SAlogo = this.add.sprite(384, 156, 'SAGDlogo');
     this.SAlogo.anchor.setTo(0.5, 0.5);
     // this.loadingText = this.add.text(240, 450, 'now loading');
-
+    this.game.load.audio('test_loop', 'sound/test_loop.ogg')
     this.load.setPreloadSprite(this.preloadBar);
   },
   create: function () {

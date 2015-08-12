@@ -13,7 +13,10 @@ NSTC.Finger = function(state, x, y, letter){
     right: false
   };
 
-  this.update = function(){
+  this.cUpdate = function(){
+    // Reset values from last update
+    this.cVars.scored = false;
+
     if(this.game.keyManager.isHeld(letter)){
       if(this.game.keyManager.isPressed('left')){
         this.stepLeft(); 
@@ -32,13 +35,13 @@ NSTC.Finger = function(state, x, y, letter){
   this.stepRight = function(){
     this.cVars.left = false;
     this.cVars.right = true;
-    this.x = this.cVars.lineX + 30;
+    this.x = this.cVars.lineX + 35;
   };
 
   this.stepLeft = function(){
     this.cVars.left = true;
     this.cVars.right = false;
-    this.x = this.cVars.lineX - 30;
+    this.x = this.cVars.lineX - 35;
   };
 
   this.stepCenter = function(){
@@ -53,6 +56,16 @@ NSTC.Finger = function(state, x, y, letter){
 
   this.isLeft = function(){
     return this.cVars.left;
+  };
+
+  this.checkScore(){
+    if(this.cVars.success){
+      alert("good!");
+    } else if (this.
+  };
+
+  this.success(){
+    this.cVars.success = true;
   };
 }
 

@@ -24,12 +24,12 @@ NSTC.Target = function(state, leftFinger, rightFinger, timer, x, y){
 
     // If active, see if we're being touched by any fingers
     if(this.cVars.active && !this.cVars.hit){
-      if(this.cVars.leftFinger.isRight()
-        this.cVars.leftFinger.success();
+      if(this.cVars.leftFinger.isRight()){
+        this.cVars.leftFinger.succeed();
         this.cVars.hit = true;
-        this.texture = this.hitGraphic.generateTexture();
+        this.kill();
       } else if(this.cVars.rightFinger.isLeft()){
-        this.cVars.rightFinger.success();
+        this.cVars.rightFinger.succeed();
         this.cVars.hit = true;
         this.kill();
       }

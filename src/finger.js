@@ -58,13 +58,15 @@ NSTC.Finger = function(state, x, y, letter){
     return this.cVars.left;
   };
 
-  this.checkScore(){
+  this.checkScore = function(){
     if(this.cVars.success){
       alert("good!");
-    } else if (this.
+    } else {
+      alert("bad!");
+    }
   };
 
-  this.success(){
+  this.succeed = function(){
     this.cVars.success = true;
   };
 }

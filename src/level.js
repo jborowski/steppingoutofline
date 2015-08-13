@@ -10,9 +10,9 @@ NSTC.Level.prototype = {
     this.lines = this.game.add.group();
 
     this.hand = {
-      a: new NSTC.Finger(this, 'a', new NSTC.Line(this,250,400,250,50)),
-      s: new NSTC.Finger(this, 's', new NSTC.Line(this,250,400,250,50)),
-      d: new NSTC.Finger(this, 'd', new NSTC.Line(this,250,400,250,50))
+      a: new NSTC.Finger(this, 'a', new NSTC.Line(this,250)),
+      s: new NSTC.Finger(this, 's', new NSTC.Line(this,350)),
+      d: new NSTC.Finger(this, 'd', new NSTC.Line(this,450))
     }
 
 

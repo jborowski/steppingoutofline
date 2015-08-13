@@ -1,29 +1,26 @@
-NSTC.Line = function(state, x1, y1, x2, y2){
+NSTC.Line = function(state, y){
   this.state = state;
   this.game = this.state.game;
   var lineGraphic = this.game.add.bitmapData(this.game.width, this.game.height);
   lineGraphic.addToWorld();
   this.points = {
-      'x': [ 128, 128, 256, 256, 512, 608 ],
-      'y': [ 240, 180, 180, 240, 240, 240 ]
+      'x': [ 30, 128, 128, 256, 256, 512, 608 ],
+      'y': [ y, y, y-30, y-30, y, y, y ]
   };
   var color = 'white';
-
+  this.path = [];
   var x = 1 / this.game.width;
   for (var i = 0; i <= 1; i += x){
     var px = this.state.math.linearInterpolation(this.points.x, i);
     var py = this.state.math.linearInterpolation(this.points.y, i);
     lineGraphic.rect(px, py, 1, 1, 'rgba(255, 255, 255, 1)');
+    this.path.push({x: px, y: py});
   }
 
-  Phaser.Sprite.call(this, this.game, x1, y1, lineGraphic);
+  Phaser.Sprite.call(this, this.game, 0, 0, lineGraphic);
   this.state.lines.add(this);
 
   this.cVars = {
-    x1: x1,
-    y1: y1,
-    x2: x2,
-    y2: y2,
     finger: null
   };
 

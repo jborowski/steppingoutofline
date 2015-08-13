@@ -27,8 +27,8 @@ NSTC.Line = function(state, y){
   this.cUpdate = function(){
   };
 
-  this.getValueAtPosition = function(position){
-    return this.path[Math.floor(this.path.length * position)];
+  this.getPositionAt = function(percentPosition){
+    return Math.floor(this.path.length * percentPosition);
   };
 }
 

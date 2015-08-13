@@ -4,8 +4,8 @@ NSTC.Line = function(state, y){
   var lineGraphic = this.game.add.bitmapData(this.game.width, this.game.height);
   lineGraphic.addToWorld();
   this.points = {
-      'x': [ 30, 128, 128, 256, 256, 512, 608 ],
-      'y': [ y, y, y-30, y-30, y, y, y ]
+      'x': [ 50, 650 ],
+      'y': [ y, y ]
   };
   var color = 'white';
   this.path = [];

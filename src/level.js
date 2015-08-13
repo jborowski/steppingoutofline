@@ -15,7 +15,6 @@ NSTC.Level.prototype = {
       d: new NSTC.Finger(this, 'd', new NSTC.Line(this,450))
     }
 
-
     new NSTC.Target(this, this.hand.a, this.hand.s, 2500, 315, 0);
     new NSTC.Target(this, this.hand.a, this.hand.s, 3500, 315, -80);
     new NSTC.Target(this, this.hand.a, this.hand.s, 4500, 315, -160);

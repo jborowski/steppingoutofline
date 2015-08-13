@@ -1,13 +1,14 @@
-NSTC.Finger = function(state, x, y, letter){
+NSTC.Finger = function(state, letter, line){
   this.state = state;
   this.game = this.state.game;
   var selectedGraphic = new Phaser.Graphics().beginFill(0x0000FF).drawCircle(0,0,50,50);
-  Phaser.Sprite.call(this, this.game, x, y, selectedGraphic.generateTexture());
+  Phaser.Sprite.call(this, this.game, line.cVars.x1, line.cVars.y1, selectedGraphic.generateTexture());
   this.state.fingers.add(this);
 
   this.cVars = {
-    lineX: x,
-    lineY: y,
+    line: line,
+    lineX: line.cVars.x1,
+    lineY: line.cVars.y1,
     letter: letter,
     left: false,
     right: false

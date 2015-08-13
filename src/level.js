@@ -10,16 +10,15 @@ NSTC.Level.prototype = {
     this.lines = this.game.add.group();
 
     this.hand = {
-      a: new NSTC.Finger(this, 250, 400, 'a'),
-      s: new NSTC.Finger(this, 380, 400, 's'),
-      d: new NSTC.Finger(this, 510, 400, 'd'),
+      a: new NSTC.Finger(this, 'a', new NSTC.Line(this,250,400,250,50)),
+      s: new NSTC.Finger(this, 's', new NSTC.Line(this,250,400,250,50)),
+      d: new NSTC.Finger(this, 'd', new NSTC.Line(this,250,400,250,50))
     }
+
 
     new NSTC.Target(this, this.hand.a, this.hand.s, 2500, 315, 0);
     new NSTC.Target(this, this.hand.a, this.hand.s, 3500, 315, -80);
     new NSTC.Target(this, this.hand.a, this.hand.s, 4500, 315, -160);
-
-    new NSTC.Line(this,0,0,50,50);
 
     this.game.add.text(50, 50, this.definition.text, { fill: '#FFF' });
     this.loopTimerText = this.game.add.text(50, 150, '', { fill: '#FFF' });

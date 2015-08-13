@@ -26,6 +26,10 @@ NSTC.Line = function(state, y){
 
   this.cUpdate = function(){
   };
+
+  this.getValueAtPosition = function(position){
+    return this.path[Math.floor(this.path.length * position)];
+  };
 }
 
 NSTC.Line.prototype = Object.create(Phaser.Sprite.prototype);

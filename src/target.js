@@ -1,23 +1,24 @@
-NSTC.Target = function(state, leftFinger, rightFinger, timer, x, y){
+NSTC.Target = function(state, leftFinger, rightFinger, position){
   this.state = state;
   this.game = this.state.game;
   this.inactiveGraphic = new Phaser.Graphics().beginFill(0xFF0000).drawCircle(0,0,50,50);
   this.activeGraphic = new Phaser.Graphics().beginFill(0x00FF00).drawCircle(0,0,50,50);
   this.hitGraphic = new Phaser.Graphics().beginFill(0x888888).drawCircle(0,0,50,50);
-  Phaser.Sprite.call(this, this.game, x, y, this.inactiveGraphic.generateTexture());
+  Phaser.Sprite.call(this, this.game, leftFinger.line.getValueAtPosition(position).x, leftFinger.y+50, this.inactiveGraphic.generateTexture());
   this.state.targets.add(this);
+  this.anchor.setTo(0.5,0.5);
 
   this.cVars = {
     leftFinger: leftFinger,
     rightFinger: rightFinger,
-    timer: timer,
+    //timer: timer,
     active: false,
     hit: false
   };
 
   this.cUpdate = function(){
     // If inactive, see if we should become active yet
-    if(!this.cVars.active && this.cVars.timer < this.state.music.currentTime){
+   /* if(!this.cVars.active && this.cVars.timer < this.state.music.currentTime){
       this.cVars.active = true;
       this.texture = this.activeGraphic.generateTexture();
     }
@@ -40,7 +41,7 @@ NSTC.Target = function(state, leftFinger, rightFinger, timer, x, y){
       this.cVars.hit = false;
       this.cVars.active = false;
       this.revive();
-    }
+    }*/
   };
 }
 

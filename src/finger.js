@@ -11,6 +11,7 @@ NSTC.Finger = function(state, letter, line){
   };
 
   this.line = line;
+  this.line.finger = this;
 
   Phaser.Sprite.call(this, this.game, this.line.path[0].x, this.line.path[0].y, selectedGraphic.generateTexture());
   this.anchor.setTo(0.5,0.5);
@@ -38,10 +39,10 @@ NSTC.Finger = function(state, letter, line){
     // Move along path
     if(this.cVars.left){
       this.x = this.line.path[this.cVars.position].x;
-      this.y = this.line.path[this.cVars.position].y-40;
+      this.y = this.line.path[this.cVars.position].y-50;
     } else if(this.cVars.right){
       this.x = this.line.path[this.cVars.position].x;
-      this.y = this.line.path[this.cVars.position].y+40;
+      this.y = this.line.path[this.cVars.position].y+50;
     } else {
       this.x = this.line.path[this.cVars.position].x;
       this.y = this.line.path[this.cVars.position].y;

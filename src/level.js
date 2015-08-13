@@ -15,9 +15,9 @@ NSTC.Level.prototype = {
       d: new NSTC.Finger(this, 'd', new NSTC.Line(this,450))
     }
 
-    new NSTC.Target(this, this.hand.a, this.hand.s, 2500, 315, 0);
-    new NSTC.Target(this, this.hand.a, this.hand.s, 3500, 315, -80);
-    new NSTC.Target(this, this.hand.a, this.hand.s, 4500, 315, -160);
+    new NSTC.Target(this, this.hand.a, this.hand.s, 0.4);
+    new NSTC.Target(this, this.hand.a, this.hand.s, 0.5);
+    new NSTC.Target(this, this.hand.a, this.hand.s, 0.6);
 
     this.game.add.text(50, 50, this.definition.text, { fill: '#FFF' });
     this.loopTimerText = this.game.add.text(50, 150, '', { fill: '#FFF' });
@@ -31,7 +31,6 @@ NSTC.Level.prototype = {
   update: function(){
     this.game.keyManager.update();
     this.loopTimerText.setText(String(this.music.currentTime));
-    this.targets.y = -100 + (this.music.currentTime/this.music.durationMS) * 800;
     if(this.game.keyManager.isReleased('enter')){
       this.state.start('StartMenu');
     }

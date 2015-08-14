@@ -30,7 +30,7 @@ NSTC.Level.prototype = {
   },
   update: function(){
     this.game.keyManager.update();
-    this.loopTimerText.setText(String(this.music.currentTime));
+    this.loopTimerText.setText(String(this.music.currentTime)+"/"+this.music.duration);
     if(this.game.keyManager.isReleased('enter')){
       this.state.start('StartMenu');
     }

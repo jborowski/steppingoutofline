@@ -1,29 +1,26 @@
-NSTC.Target = function(state, leftFinger, rightFinger, percentPosition){
+NSTC.Target = function(state, attachments){
   this.state = state;
   this.game = this.state.game;
+  
 
   this.cVars = {
-    position: leftFinger.line.getPositionAt(percentPosition),
+    positions: [],
     active: false,
     hit: false
   };
+  this.attachments = attachments;
 
-  this.leftFinger = leftFinger;
-  this.rightFinger = rightFinger;
-
-  this.inactiveGraphic = new Phaser.Graphics().beginFill(0xFF0000).drawCircle(0,0,50,50);
-  this.activeGraphic = new Phaser.Graphics().beginFill(0x00FF00).drawCircle(0,0,50,50);
-  this.hitGraphic = new Phaser.Graphics().beginFill(0x888888).drawCircle(0,0,50,50);
-  Phaser.Sprite.call(this, this.game, this.leftFinger.line.path[this.cVars.position].x, leftFinger.y+50, this.inactiveGraphic.generateTexture());
+  this.inactiveGraphic = new Phaser.Graphics().beginFill(0xFF0000).drawRect(0,0,50,50);
+  this.activeGraphic = new Phaser.Graphics().beginFill(0x00FF00).drawRect(0,0,50,50);
+  this.hitGraphic = new Phaser.Graphics().beginFill(0x888888).drawRect(0,0,50,50);
+  var firstLine = this.attachments[0].finger.line;
+  var firstPosition = this.attachments[0].position
+  Phaser.Sprite.call(this, this.game, firstLine.getPointAt(firstPosition).x, this.attachments[0].finger.y+50, this.inactiveGraphic.generateTexture());
   this.state.targets.add(this);
-  this.anchor.setTo(0.5,0.5);
+  this.anchor.setTo(0,0.5);
 
 
   this.cUpdate = function(){
-    // If both fingers have passed us, become inactive
-    if(this.leftFinger && (this.leftFinger.cVars.position > this.cVars.position)){
-      this.kill();
-    }
   };
 }
 

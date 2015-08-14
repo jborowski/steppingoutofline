@@ -30,6 +30,10 @@ NSTC.Line = function(state, y){
   this.getPositionAt = function(percentPosition){
     return Math.floor(this.path.length * percentPosition);
   };
+
+  this.getPointAt = function(percentPosition){
+    return this.path[this.getPositionAt(percentPosition)];
+  };
 }
 
 NSTC.Line.prototype = Object.create(Phaser.Sprite.prototype);

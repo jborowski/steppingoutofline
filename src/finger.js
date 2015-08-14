@@ -21,7 +21,7 @@ NSTC.Finger = function(state, letter, line){
     // Reset values from last update
     this.cVars.success = false;
 
-    ///
+    // Key Pressed
     if(this.game.keyManager.isHeld(letter)){
       if(this.game.keyManager.isPressed('left')){
         this.stepLeft(); 
@@ -29,6 +29,18 @@ NSTC.Finger = function(state, letter, line){
         this.stepRight(); 
       }
     }
+
+    if(this.game.keyManager.isHeld('left')){
+      if(this.game.keyManager.isPressed(letter)){
+        this.stepLeft();
+      }
+    } else if(this.game.keyManager.isHeld('right')){
+      if(this.game.keyManager.isPressed(letter)){
+        this.stepRight();
+      }
+    }
+
+    // Key released
     if(this.game.keyManager.isReleased("left") || this.game.keyManager.isReleased("right")){
       this.stepCenter();
     }

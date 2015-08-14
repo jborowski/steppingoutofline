@@ -24,26 +24,6 @@ NSTC.Target = function(state, leftFinger, rightFinger, percentPosition){
     if(this.leftFinger && (this.leftFinger.cVars.position > this.cVars.position)){
       this.kill();
     }
-    /*
-    // If active, see if we're being touched by any fingers
-    if(this.cVars.active && !this.cVars.hit){
-      if(this.cVars.leftFinger.isRight()){
-        this.cVars.leftFinger.succeed();
-        this.cVars.hit = true;
-        this.kill();
-      } else if(this.cVars.rightFinger.isLeft()){
-        this.cVars.rightFinger.succeed();
-        this.cVars.hit = true;
-        this.kill();
-      }
-    }
-
-    if(this.cVars.hit && this.cVars.timer > this.state.music.currentTime){
-      this.texture = this.inactiveGraphic.generateTexture();
-      this.cVars.hit = false;
-      this.cVars.active = false;
-      this.revive();
-    }*/
   };
 }
 

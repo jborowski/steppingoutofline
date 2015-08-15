@@ -1,0 +1,73 @@
+{
+  "name": "Tutorialis",
+  "targets": [
+    { "length": 40,
+      "attachments": [
+        {"finger": "a", "direction": -1, "position": 0.1 }
+      ]
+    },
+    { "length": 40,
+      "attachments": [
+        {"finger": "a", "direction": 1, "position": 0.2},
+        {"finger": "s", "direction": -1, "position": 0.2}
+      ]
+    },
+    { "length": 60,
+      "attachments": [
+        {"finger": "s", "direction": 1, "position": 0.4},
+        {"finger": "d", "direction": -1, "position": 0.4}
+      ]
+    },
+    { "length": 60,
+      "attachments": [
+        {"finger": "s", "direction": 1, "position": 0.6},
+        {"finger": "d", "direction": -1, "position": 0.6}
+      ]
+    },
+    { "length": 60,
+      "attachments": [
+        {"finger": "a", "direction": 1, "position": 0.6},
+        {"finger": "s", "direction": -1, "position": 0.6}
+      ]
+    },
+    { "length": 60,
+      "attachments": [
+        {"finger": "a", "direction": -1, "position": 0.6}
+      ]
+    },
+    { "length": 60,
+      "attachments": [
+        {"finger": "s", "direction": 1, "position": 0.75},
+        {"finger": "d", "direction": -1, "position": 0.75}
+      ]
+    },
+    { "length": 60,
+      "attachments": [
+        {"finger": "a", "direction": 1, "position": 0.75},
+        {"finger": "s", "direction": -1, "position": 0.75}
+      ]
+    },
+    { "length": 60,
+      "attachments": [
+        {"finger": "d", "direction": 1, "position": 0.75}
+      ]
+    },
+    { "length": 60,
+      "attachments": [
+        {"finger": "s", "direction": 1, "position": 0.9},
+        {"finger": "d", "direction": -1, "position": 0.9}
+      ]
+    },
+    { "length": 60,
+      "attachments": [
+        {"finger": "a", "direction": 1, "position": 0.9},
+        {"finger": "s", "direction": -1, "position": 0.9}
+      ]
+    },
+    { "length": 60,
+      "attachments": [
+        {"finger": "a", "direction": -1, "position": 0.9}
+      ]
+    }
+  ]
+}

@@ -8,16 +8,16 @@ NSTC.StartMenu.prototype = {
     this.menu = this.game.add.group();
     this.menu.position.x = 300;
     this.menu.position.y = 250;
-    var optionTexts = ["Option 1", "Option 2", "Option 3"];
     var newOption;
     var selectedGraphic = new Phaser.Graphics().beginFill(0x0000FF).drawRect(0,0,300,30);
-    for(var ii=0; ii < optionTexts.length; ii+=1){
+    for(var ii=0; ii < this.game.songs.length; ii+=1){
       newOption = this.game.add.group(this.menu);
       newOption.outline = this.game.add.sprite(-20,0, selectedGraphic.generateTexture());
       newOption.outline.visible = false;
       newOption.add(newOption.outline);
-      newOption.name = optionTexts[ii];
-      newOption.text = this.game.add.text(0,0, newOption.name, { fill: '#FFF'});
+      newOption.songId = this.game.songs[ii];
+      newOption.songData = JSON.parse(this.game.cache.getText(newOption.songId));
+      newOption.text = this.game.add.text(0,0, newOption.songData.name, { fill: '#FFF'});
       newOption.add(newOption.text);
       newOption.position.y = ii * 30;
       this.options.push(newOption);
@@ -53,7 +53,7 @@ NSTC.StartMenu.prototype = {
   update: function(){
     this.game.keyManager.update();
     if(this.game.keyManager.isReleased('enter')){
-      this.state.start('Level', true, false, {text: this.getSelectedOption().name});
+      this.state.start('Level', true, false, this.getSelectedOption().songData);
     } else if(this.game.keyManager.isPressed('down')){
       this.nextOption();
     } else if(this.game.keyManager.isPressed('up')){

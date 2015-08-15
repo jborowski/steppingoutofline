@@ -1,25 +1,27 @@
 NSTC.Finger = function(state, letter, line){
   this.state = state;
   this.game = this.state.game;
-  var selectedGraphic = new Phaser.Graphics().beginFill(0x0000FF).drawCircle(0,0,50,50);
+  this.idleGraphic = new Phaser.Graphics().beginFill(0x0000FF).drawCircle(0,0,50,50);
+  this.hitGraphic = new Phaser.Graphics().beginFill(0x00FF44).drawCircle(0,0,50,50);
 
   this.cVars = {
     letter: letter,
     left: false,
     right: false,
-    position: 0
+    position: 0,
+    onTarget: false
   };
 
   this.line = line;
   this.line.finger = this;
 
-  Phaser.Sprite.call(this, this.game, this.line.path[0].x, this.line.path[0].y, selectedGraphic.generateTexture());
+  Phaser.Sprite.call(this, this.game, this.line.path[0].x, this.line.path[0].y, this.idleGraphic.generateTexture());
   this.anchor.setTo(0.5,0.5);
   this.state.fingers.add(this);
 
   this.cUpdate = function(){
     // Reset values from last update
-    this.cVars.success = false;
+    this.cVars.onTarget = false;
 
     // Key Pressed
     if(this.game.keyManager.isHeld(letter)){
@@ -71,6 +73,22 @@ NSTC.Finger = function(state, letter, line){
     }
   };
 
+  this.cPostUpdate = function(){
+    if(this.cVars.left || this.cVars.right){
+      if(this.cVars.onTarget){
+        this.state.score += 3;
+      } else {
+        this.state.score -= 1;
+      }
+    }
+    
+    if(this.cVars.onTarget){
+      this.texture = this.hitGraphic.generateTexture();
+    } else {
+      this.texture = this.idleGraphic.generateTexture();
+    }
+  };
+
   this.stepRight = function(){
     this.cVars.left = false;
     this.cVars.right = true;
@@ -95,18 +113,8 @@ NSTC.Finger = function(state, letter, line){
     return this.cVars.left;
   };
 
-  this.updateScore = function(){
-    if(this.cVars.left || this.cVars.right){
-      if(this.cVars.success){
-        this.state.score += 3;
-      } else {
-        this.state.score -= 1;
-      }
-    }
-  };
-
-  this.succeed = function(){
-    this.cVars.success = true;
+  this.onTarget = function(){
+    this.cVars.onTarget = true;
   };
 }
 

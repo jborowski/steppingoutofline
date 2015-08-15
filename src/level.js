@@ -39,7 +39,7 @@ NSTC.Level.prototype = {
       target.cUpdate();
     });
     this.fingers.forEach(function(finger){
-      finger.updateScore();
+      finger.cPostUpdate();
     });
     this.scoreDisplay.text = "SCORE: "+this.score;
   },

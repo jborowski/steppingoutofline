@@ -14,7 +14,8 @@ NSTC.Level.prototype = {
       d: new NSTC.Finger(this, 'd', new NSTC.Line(this,450))
     }
 
-    new NSTC.Target(this, [ {finger: this.hand.a, position: 0.4}, {finger: this.hand.s, position: 0.4} ]);
+    new NSTC.Target(this, 50, [ {finger: this.hand.a, position: 0.4}, {finger: this.hand.s, position: 0.4} ]);
+    new NSTC.Target(this, 150, [ {finger: this.hand.s, position: 0.4}, {finger: this.hand.d, position: 0.4} ]);
 
     this.game.add.text(50, 50, this.definition.text, { fill: '#FFF' });
     this.loopTimerText = this.game.add.text(50, 150, '', { fill: '#FFF' });

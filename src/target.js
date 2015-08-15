@@ -1,4 +1,4 @@
-NSTC.Target = function(state, attachments){
+NSTC.Target = function(state, length, attachments){
   this.state = state;
   this.game = this.state.game;
   
@@ -10,16 +10,16 @@ NSTC.Target = function(state, attachments){
   };
   this.attachments = attachments;
 
-  this.openGraphic = new Phaser.Graphics().beginFill(0xBB0022).drawRect(0,0,50,50);
-  this.deadGraphic = new Phaser.Graphics().beginFill(0x222222).drawRect(0,0,50,50);
-  this.passGraphic = new Phaser.Graphics().beginFill(0xFFFFFF).drawRect(0,0,50,50);
-  this.hitGraphic = new Phaser.Graphics().beginFill(0xFF3399).drawRect(0,0,50,50);
+  this.openGraphic = new Phaser.Graphics().beginFill(0xBB0022).drawRect(0,0,length,50);
+  this.deadGraphic = new Phaser.Graphics().beginFill(0x222222).drawRect(0,0,length,50);
+  this.passGraphic = new Phaser.Graphics().beginFill(0xFFFFFF).drawRect(0,0,length,50);
+  this.hitGraphic = new Phaser.Graphics().beginFill(0xFF3399).drawRect(0,0,length,50);
   var firstLine = this.attachments[0].finger.line;
   var firstPoint = firstLine.getPointAt(this.attachments[0].position);
   Phaser.Sprite.call(this, this.game, firstPoint.x, firstPoint.y+50, this.openGraphic.generateTexture());
   this.state.targets.add(this);
   this.anchor.setTo(0,0.5);
-  this.box = new Phaser.Rectangle(firstPoint.x, firstPoint.y+40, 50, 20);
+  this.box = new Phaser.Rectangle(firstPoint.x, firstPoint.y+40, length, 20);
 
 
   this.cUpdate = function(){

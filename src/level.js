@@ -21,6 +21,7 @@ NSTC.Level.prototype = {
 
     this.music = this.game.add.sound('test_loop');
     this.music.loopFull();
+    this.music.onLoop.add(this.resetTargets, this);
 
     this.score = 0;
     this.scoreDisplay = this.game.add.text(500, 50, "SCORE: "+this.score, { fill: '#FFF' });
@@ -49,5 +50,9 @@ NSTC.Level.prototype = {
     new NSTC.Target(this, 50, [ {finger: this.hand.a, position: 0.4, direction: 1}, {finger: this.hand.s, position: 0.4} ]);
     new NSTC.Target(this, 50, [ {finger: this.hand.a, position: 0.7, direction: 1}, {finger: this.hand.s, position: 0.7} ]);
     new NSTC.Target(this, 150, [ {finger: this.hand.s, position: 0.4, direction: 1}, {finger: this.hand.d, position: 0.4} ]);
+  },
+  resetTargets: function(){
+    this.targets.callAll('destroy');
+    this.buildTargets();
   }
 }

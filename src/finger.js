@@ -52,14 +52,6 @@ NSTC.Finger = function(state, letter, line){
 
     this.cVars.position = this.line.getPositionAt(this.state.music.currentTime/this.state.music.durationMS);
 
-    if(!this.line.path[this.cVars.position]){
-      alert(this.line.path.length);
-      alert(this.state.music.currentTime);
-      alert(this.state.music.durationMS);
-      alert(this.cVars.position);
-      alert(this.line.path[this.cVars.position]);
-    }
-    
     // Move along path
     if(this.cVars.left){
       this.x = this.line.path[this.cVars.position].x;

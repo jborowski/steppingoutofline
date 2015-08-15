@@ -1,63 +1,53 @@
 {
   "name": "KILLER",
   "targets": [
-    { "length": 400,
-      "attachments": [
-        {"finger": "a", "direction": -1, "position": 0.3 }
+    { "attachments": [
+        {"finger": "a", "direction": -1, "begin": 0.3, "end": 0.9 }
       ]
     },
-    { "length": 30,
-      "attachments": [
-        {"finger": "a", "direction": 1, "position": 0.2},
-        {"finger": "s", "direction": -1, "position": 0.2}
+    { "attachments": [
+        {"finger": "a", "direction": 1, "begin": 0.2, "end": 0.25},
+        {"finger": "s", "direction": -1, "begin": 0.2, "end": 0.25}
       ]
     },
-    { "length": 30,
-      "attachments": [
-        {"finger": "a", "direction": 1, "position": 0.3},
-        {"finger": "s", "direction": -1, "position": 0.3}
+    { "attachments": [
+        {"finger": "a", "direction": 1, "begin": 0.3, "end": 0.33},
+        {"finger": "s", "direction": -1, "begin": 0.3, "end": 0.33}
       ]
     },
-    { "length": 30,
-      "attachments": [
-        {"finger": "s", "direction": 1, "position": 0.35},
-        {"finger": "d", "direction": -1, "position": 0.35}
+    { "attachments": [
+        {"finger": "s", "direction": 1, "begin": 0.36, "end": 0.39},
+        {"finger": "d", "direction": -1, "begin": 0.36, "end": 0.39}
       ]
     },
-    { "length": 30,
-      "attachments": [
-        {"finger": "a", "direction": 1, "position": 0.4},
-        {"finger": "s", "direction": -1, "position": 0.4}
+    { "attachments": [
+        {"finger": "a", "direction": 1, "begin": 0.42, "end": 0.45},
+        {"finger": "s", "direction": -1, "begin": 0.42, "end": 0.45}
       ]
     },
-    { "length": 30,
-      "attachments": [
-        {"finger": "s", "direction": 1, "position": 0.45},
-        {"finger": "d", "direction": -1, "position": 0.45}
+    { "attachments": [
+        {"finger": "s", "direction": 1, "begin": 0.45, "end": 0.48},
+        {"finger": "d", "direction": -1, "begin": 0.45, "end": 0.48}
       ]
     },
-    { "length": 30,
-      "attachments": [
-        {"finger": "a", "direction": 1, "position": 0.5},
-        {"finger": "s", "direction": -1, "position": 0.5}
+    { "attachments": [
+        {"finger": "a", "direction": 1, "begin": 0.51, "end": 0.54},
+        {"finger": "s", "direction": -1, "begin": 0.51, "end": 0.54}
       ]
     },
-    { "length": 30,
-      "attachments": [
-        {"finger": "s", "direction": 1, "position": 0.55},
-        {"finger": "d", "direction": -1, "position": 0.55}
+    { "attachments": [
+        {"finger": "s", "direction": 1, "begin": 0.57, "end": 0.6},
+        {"finger": "d", "direction": -1, "begin": 0.57, "end": 0.6}
       ]
     },
-    { "length": 90,
-      "attachments": [
-        {"finger": "a", "direction": 1, "position": 0.6},
-        {"finger": "s", "direction": -1, "position": 0.6}
+    { "attachments": [
+        {"finger": "a", "direction": 1, "begin": 0.63, "end": 0.66},
+        {"finger": "s", "direction": -1, "begin": 0.63, "end": 0.66}
       ]
     },
-    { "length": 30,
-      "attachments": [
-        {"finger": "s", "direction": 1, "position": 0.65},
-        {"finger": "d", "direction": -1, "position": 0.65}
+    { "attachments": [
+        {"finger": "s", "direction": 1, "begin": 0.63, "end": 0.66},
+        {"finger": "d", "direction": -1, "begin": 0.63, "end": 0.66}
       ]
     }
   ]

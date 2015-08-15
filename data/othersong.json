@@ -1,72 +1,61 @@
 {
   "name": "Tutorialis",
   "targets": [
-    { "length": 40,
-      "attachments": [
-        {"finger": "a", "direction": -1, "position": 0.1 }
+    { "attachments": [
+        {"finger": "a", "direction": -1, "begin": 0.1, "end": 0.15 }
       ]
     },
-    { "length": 40,
+    {
       "attachments": [
-        {"finger": "a", "direction": 1, "position": 0.2},
-        {"finger": "s", "direction": -1, "position": 0.2}
+        {"finger": "a", "direction": 1, "begin": 0.2, "end": 0.25},
+        {"finger": "s", "direction": -1, "begin": 0.2, "end": 0.25}
       ]
     },
-    { "length": 60,
-      "attachments": [
-        {"finger": "s", "direction": 1, "position": 0.4},
-        {"finger": "d", "direction": -1, "position": 0.4}
+    { "attachments": [
+        {"finger": "s", "direction": 1, "begin": 0.4, "end": 0.5},
+        {"finger": "d", "direction": -1, "begin": 0.4, "end": 0.5}
       ]
     },
-    { "length": 60,
-      "attachments": [
-        {"finger": "s", "direction": 1, "position": 0.6},
-        {"finger": "d", "direction": -1, "position": 0.6}
+    { "attachments": [
+        {"finger": "s", "direction": 1, "begin": 0.6, "end": 0.7},
+        {"finger": "d", "direction": -1, "begin": 0.6, "end": 0.7}
       ]
     },
-    { "length": 60,
-      "attachments": [
-        {"finger": "a", "direction": 1, "position": 0.6},
-        {"finger": "s", "direction": -1, "position": 0.6}
+    { "attachments": [
+        {"finger": "a", "direction": 1, "begin": 0.6, "end": 0.7},
+        {"finger": "s", "direction": -1, "begin": 0.6, "end": 0.7}
       ]
     },
-    { "length": 60,
-      "attachments": [
-        {"finger": "a", "direction": -1, "position": 0.6}
+    { "attachments": [
+        {"finger": "a", "direction": -1, "begin": 0.6, "end": 0.7}
       ]
     },
-    { "length": 60,
-      "attachments": [
-        {"finger": "s", "direction": 1, "position": 0.75},
-        {"finger": "d", "direction": -1, "position": 0.75}
+    { "attachments": [
+        {"finger": "s", "direction": 1, "begin": 0.7, "end": 0.8},
+        {"finger": "d", "direction": -1, "begin": 0.7, "end": 0.8}
       ]
     },
-    { "length": 60,
-      "attachments": [
-        {"finger": "a", "direction": 1, "position": 0.75},
-        {"finger": "s", "direction": -1, "position": 0.75}
+    { "attachments": [
+        {"finger": "a", "direction": 1, "begin": 0.7, "end": 0.8},
+        {"finger": "s", "direction": -1, "begin": 0.7, "end": 0.8}
       ]
     },
-    { "length": 60,
-      "attachments": [
-        {"finger": "d", "direction": 1, "position": 0.75}
+    { "attachments": [
+        {"finger": "d", "direction": 1, "begin": 0.7, "end": 0.8}
       ]
     },
-    { "length": 60,
-      "attachments": [
-        {"finger": "s", "direction": 1, "position": 0.9},
-        {"finger": "d", "direction": -1, "position": 0.9}
+    { "attachments": [
+        {"finger": "s", "direction": 1, "begin": 0.8, "end": 0.9},
+        {"finger": "d", "direction": -1, "begin": 0.8, "end": 0.9}
       ]
     },
-    { "length": 60,
-      "attachments": [
-        {"finger": "a", "direction": 1, "position": 0.9},
-        {"finger": "s", "direction": -1, "position": 0.9}
+    { "attachments": [
+        {"finger": "a", "direction": 1, "begin": 0.8, "end": 0.9},
+        {"finger": "s", "direction": -1, "begin": 0.8, "end": 0.9}
       ]
     },
-    { "length": 60,
-      "attachments": [
-        {"finger": "a", "direction": -1, "position": 0.9}
+    { "attachments": [
+        {"finger": "a", "direction": -1, "begin": 0.8, "end": 0.9}
       ]
     }
   ]

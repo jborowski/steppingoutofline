@@ -1,3 +1,28 @@
 {
-  "name": "UNT UNT UNT"
+  "name": "UNT UNT UNT",
+  "targets": [
+    { "length": 50,
+      "attachments": [
+        {"finger": "a", "direction": -1, "position": 0.2 }
+      ]
+    },
+    { "length": 50,
+      "attachments": [
+        {"finger": "a", "direction": 1, "position": 0.4},
+        {"finger": "s", "direction": -1, "position": 0.4}
+      ]
+    },
+    { "length": 50,
+      "attachments": [
+        {"finger": "a", "direction": 1, "position": 0.7},
+        {"finger": "s", "direction": -1, "position": 0.7}
+      ]
+    },
+    { "length": 150,
+      "attachments": [
+        {"finger": "s", "direction": 1, "position": 0.4},
+        {"finger": "d", "direction": -1, "position": 0.4}
+      ]
+    }
+  ]
 }

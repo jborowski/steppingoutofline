@@ -46,10 +46,10 @@ NSTC.Level.prototype = {
     this.scoreDisplay.text = "SCORE: "+this.score;
   },
   buildTargets: function(){
-    new NSTC.Target(this, 50, [ {finger: this.hand.a, position: 0.2, direction: -1} ]);
-    new NSTC.Target(this, 50, [ {finger: this.hand.a, position: 0.4, direction: 1}, {finger: this.hand.s, position: 0.4} ]);
-    new NSTC.Target(this, 50, [ {finger: this.hand.a, position: 0.7, direction: 1}, {finger: this.hand.s, position: 0.7} ]);
-    new NSTC.Target(this, 150, [ {finger: this.hand.s, position: 0.4, direction: 1}, {finger: this.hand.d, position: 0.4} ]);
+    for(var ii=0; ii < this.definition.targets.length; ii+=1){
+      var newTarget = this.definition.targets[ii];
+      new NSTC.Target(this, newTarget.length, newTarget.attachments);
+    }
   },
   resetTargets: function(){
     this.targets.callAll('destroy');

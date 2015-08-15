@@ -8,7 +8,14 @@ NSTC.Target = function(state, length, attachments){
     passed: 0,
     dead: false
   };
-  this.attachments = attachments;
+  this.attachments = [];
+  for(var ii=0; ii<attachments.length; ii+=1){
+    newAttachment = {};
+    newAttachment.direction = attachments[ii].direction;
+    newAttachment.position = attachments[ii].position;
+    newAttachment.finger = this.state.hand[attachments[ii].finger];
+    this.attachments.push(newAttachment);
+  }
 
   this.openGraphic = new Phaser.Graphics().beginFill(0xBB0022).drawRect(0,0,length,50);
   this.deadGraphic = new Phaser.Graphics().beginFill(0x222222).drawRect(0,0,length,50);

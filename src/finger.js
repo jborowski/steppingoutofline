@@ -25,28 +25,14 @@ NSTC.Finger = function(state, letter, line){
 
     // Key Pressed
     if(this.game.keyManager.isHeld(letter)){
-      if(this.game.keyManager.isPressed('left')){
+      if(this.game.keyManager.isHeld('left')){
         this.stepLeft(); 
-      } else if(this.game.keyManager.isPressed('right')){
+      } else if(this.game.keyManager.isHeld('right')){
         this.stepRight(); 
+      } else {
+        this.stepCenter();
       }
-    }
-
-    if(this.game.keyManager.isHeld('left')){
-      if(this.game.keyManager.isPressed(letter)){
-        this.stepLeft();
-      }
-    } else if(this.game.keyManager.isHeld('right')){
-      if(this.game.keyManager.isPressed(letter)){
-        this.stepRight();
-      }
-    }
-
-    // Key released
-    if(this.game.keyManager.isReleased("left") || this.game.keyManager.isReleased("right")){
-      this.stepCenter();
-    }
-    if(this.game.keyManager.isReleased(this.cVars.letter)){
+    } else {
       this.stepCenter();
     }
 
@@ -82,19 +68,25 @@ NSTC.Finger = function(state, letter, line){
   };
 
   this.stepRight = function(){
-    this.cVars.left = false;
-    this.cVars.right = true;
-    this.x = this.cVars.lineX + 35;
+    if(!this.cVars.right){
+      this.cVars.left = false;
+      this.cVars.right = true;
+      this.x = this.cVars.lineX + 35;
+    }
   };
 
   this.stepLeft = function(){
-    this.cVars.left = true;
-    this.cVars.right = false;
+    if(!this.cVars.left){
+      this.cVars.left = true;
+      this.cVars.right = false;
+    }
   };
 
   this.stepCenter = function(){
-    this.cVars.left = false;
-    this.cVars.right = false;
+    if(this.cVars.left || this.cVars.right){
+      this.cVars.left = false;
+      this.cVars.right = false;
+    }
   };
 
   this.isRight = function(){

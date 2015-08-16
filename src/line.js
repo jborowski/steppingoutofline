@@ -1,15 +1,15 @@
 NSTC.Line = function(state, y){
   this.state = state;
   this.game = this.state.game;
-  var lineGraphic = this.game.add.bitmapData(this.game.width, this.game.height);
+  var lineGraphic = this.game.add.bitmapData(this.game.width * 3, this.game.height);
   lineGraphic.addToWorld();
   this.points = {
-      'x': [ 50, 650 ],
+      'x': [ 50, 2000 ],
       'y': [ y, y ]
   };
   var color = 'white';
   this.path = [];
-  var x = 1 / this.game.width;
+  var x = 1 / lineGraphic.width;
   for (var i = 0; i <= 1; i += x){
     var px = this.state.math.linearInterpolation(this.points.x, i);
     var py = this.state.math.linearInterpolation(this.points.y, i);

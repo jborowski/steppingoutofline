@@ -5,5 +5,6 @@ window.onload = function(){
   game.state.add('Preloader', NSTC.Preloader);
   game.state.add('StartMenu', NSTC.StartMenu);
   game.state.add('Level', NSTC.Level);
+  game.state.add('Score', NSTC.Score);
   game.state.start('Boot');
 }

@@ -14,8 +14,6 @@ NSTC.Level.prototype = {
       d: new NSTC.Finger(this, 'd', new NSTC.Line(this,450))
     }
     
-    this.buildTargets();
-
     this.game.add.text(50, 50, this.definition.name, { fill: '#FFF' });
     this.loopTimerText = this.game.add.text(50, 150, '', { fill: '#FFF' });
 
@@ -25,13 +23,18 @@ NSTC.Level.prototype = {
 
     this.score = 0;
     this.scoreDisplay = this.game.add.text(500, 50, "SCORE: "+this.score, { fill: '#FFF' });
+    this.missedTargets = 0;
+    this.totalTargets = 0;
+
+    this.buildTargets();
+
   },
   update: function(){
     this.game.keyManager.update();
     this.loopTimerText.setText(String(this.music.currentTime)+"/"+this.music.duration);
     if(this.game.keyManager.isReleased('enter')){
       this.music.stop();
-      this.state.start('StartMenu');
+      this.state.start('Score', true, false, {name: this.definition.name, score: this.score, hit: this.totalTargets - this.missedTargets, missed: this.missedTargets, total: this.totalTargets});
     }
 
     this.fingers.forEach(function(finger){
@@ -49,6 +52,7 @@ NSTC.Level.prototype = {
     for(var ii=0; ii < this.definition.targets.length; ii+=1){
       var newTarget = this.definition.targets[ii];
       new NSTC.Target(this, newTarget.length, newTarget.attachments);
+      this.totalTargets += 1;
     }
   },
   resetTargets: function(){

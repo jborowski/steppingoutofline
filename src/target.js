@@ -34,7 +34,7 @@ NSTC.Target = function(state, length, attachments){
   } else {
     this.box = new Phaser.Rectangle(firstPoint.x, firstPoint.y-60, length, 20);
   }
-
+  this.state.totalTargets += 1;
 
   this.cUpdate = function(){
     for(var ii=0;ii<this.attachments.length;ii+=1){
@@ -55,6 +55,7 @@ NSTC.Target = function(state, length, attachments){
         this.texture = this.passGraphic.generateTexture();
       } else {
         this.state.score -= 100;
+        this.state.missedTargets += 1;
         this.texture = this.deadGraphic.generateTexture();
       }
     }

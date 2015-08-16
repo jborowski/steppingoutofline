@@ -3,7 +3,6 @@ NSTC.Target = function(state, length, attachments){
   this.game = this.state.game;
   
   this.cVars = {
-    positions: [],
     hit: false,
     passed: 0,
     dead: false
@@ -12,18 +11,21 @@ NSTC.Target = function(state, length, attachments){
   for(var ii=0; ii<attachments.length; ii+=1){
     newAttachment = {};
     newAttachment.direction = attachments[ii].direction;
-    newAttachment.position = attachments[ii].position;
+    newAttachment.begin = attachments[ii].begin;
+    newAttachment.end = attachments[ii].end;
     newAttachment.finger = this.state.hand[attachments[ii].finger];
     this.attachments.push(newAttachment);
   }
 
+  var firstAttachment = this.attachments[0];
+  var firstLine = firstAttachment.finger.line;
+  var firstPoint = firstLine.getPointAt(firstAttachment.begin);
+  var lastPoint = firstLine.getPointAt(firstAttachment.end);
+  var length = lastPoint.x - firstPoint.x;
   this.openGraphic = new Phaser.Graphics().beginFill(0xBB0022).drawRect(0,0,length,50);
   this.deadGraphic = new Phaser.Graphics().beginFill(0x222222).drawRect(0,0,length,50);
   this.passGraphic = new Phaser.Graphics().beginFill(0xFFFFFF).drawRect(0,0,length,50);
   this.hitGraphic = new Phaser.Graphics().beginFill(0xFF3399).drawRect(0,0,length,50);
-  var firstAttachment = this.attachments[0];
-  var firstLine = firstAttachment.finger.line;
-  var firstPoint = firstLine.getPointAt(firstAttachment.position);
   Phaser.Sprite.call(this, this.game, firstPoint.x, firstPoint.y+(50*firstAttachment.direction), this.openGraphic.generateTexture());
   this.state.targets.add(this);
   this.anchor.setTo(0,0.5);

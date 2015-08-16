@@ -68,7 +68,7 @@ NSTC.Finger = function(state, letter, line){
   this.cPostUpdate = function(){
     if(this.cVars.left || this.cVars.right){
       if(this.cVars.onTarget){
-        this.state.score += 3;
+        this.state.score += 1;
       } else {
         this.state.score -= 1;
       }
